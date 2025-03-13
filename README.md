@@ -58,8 +58,8 @@
 ### 4.1 后端
 - **语言**：python
 - **通信协议**：WebSocket + REST API
-- **数据库**：SQLite / PostgreSQL
-- **文件存储**：本地存储或 MinIO
+- **数据库**：PostgreSQL
+- **文件存储**：本地存储
 
 ### 4.2 前端
 - **Web 端**：Vue
