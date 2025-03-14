@@ -102,3 +102,11 @@ CREATE TABLE files (
     file_size INT,
     uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- 文件权限表
+CREATE TABLE file_permissions (
+    id SERIAL PRIMARY KEY,
+    file_id INT REFERENCES files(id) ON DELETE CASCADE,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    permission VARCHAR(20) CHECK (permission IN ('read', 'write', 'delete', 'share')),
+);
