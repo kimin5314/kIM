@@ -103,7 +103,7 @@
 后端需验证用户 token, 并确认请求用户是否为上传者, 然后执行删除操作, 同时级联删除对应的权限记录。
 
 - API: /api/file/delete  
-- Method: DELETE 
+- Method: DELETE
 - Authorization: Bearer token  
 - Request:
   - Body:

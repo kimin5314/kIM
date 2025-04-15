@@ -41,6 +41,7 @@ CREATE TABLE messages (
     message_type VARCHAR(10) NOT NULL CHECK (
         message_type IN ('text', 'image', 'file', 'audio', 'video', 'system')
     ),
+    status VARCHAR(10) CHECK (status IN ('sent', 'delivered', 'read')),
     content TEXT,
     file_url TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

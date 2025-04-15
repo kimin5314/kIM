@@ -44,14 +44,14 @@
 - API: /api/user/register
 - Method: POST
 - Request:
-    - Body:
-        - username: string
-        - password: string
-        - display_name: string
+  - Body:
+    - username: string
+    - password: string
+    - display_name: string
 - Response:
-    - Body:
-        - code: int
-        - message: string
+  - Body:
+    - code: int
+    - message: string
 
 ### 前端
 
@@ -67,14 +67,14 @@
 - API: /api/user/login
 - Method: POST
 - Request:
-    - Body:
-        - username: string
-        - password: string
+  - Body:
+    - username: string
+    - password: string
 - Response:
-    - Body:
-        - code: int
-        - message: string
-        - token: string
+  - Body:
+    - code: int
+    - message: string
+    - token: string
 
 ### 前端
 
@@ -92,10 +92,10 @@
 - Authorization: Bearer token
 - Request:
 - Response:
-    - Body:
-        - code: int
-        - message: string
-        - user: object
+  - Body:
+    - code: int
+    - message: string
+    - user: object
 
 ## 用户信息修改
 
@@ -107,12 +107,12 @@
 - Method: POST
 - Authorization: Bearer token
 - Request:
-    - Body:
-        - display_name: string
+  - Body:
+    - display_name: string
 - Response:
-    - Body:
-        - code: int
-        - message: string
+  - Body:
+    - code: int
+    - message: string
 
 ### 前端
 
@@ -128,13 +128,13 @@
 - Method: POST
 - Authorization: Bearer token
 - Request:
-    - Body:
-        - old_password: string
-        - new_password: string
+  - Body:
+    - old_password: string
+    - new_password: string
 - Response:
-    - Body:
-        - code: int
-        - message: string
+  - Body:
+    - code: int
+    - message: string
 
 ### 前端
 
@@ -152,9 +152,9 @@
 - Authorization: Bearer token
 - Request:
 - Response:
-    - Body:
-        - code: int
-        - message: string
+  - Body:
+    - code: int
+    - message: string
 
 ### 前端
 
@@ -170,12 +170,12 @@
 - Method: POST
 - Authorization: Bearer token
 - Request:
-    - Body:
-        - contact_id: int
+  - Body:
+    - contact_id: int
 - Response:
-    - Body:
-        - code: int
-        - message: string
+  - Body:
+    - code: int
+    - message: string
 
 ### 前端
 
@@ -192,12 +192,12 @@
 - Method: POST
 - Authorization: Bearer token
 - Request:
-    - Body:
-        - contact_id: int
+  - Body:
+    - contact_id: int
 - Response:
-    - Body:
-        - code: int
-        - message: string
+  - Body:
+    - code: int
+    - message: string
 
 ### 前端
 
@@ -213,12 +213,12 @@
 - Method: POST
 - Authorization: Bearer token
 - Request:
-    - Body:
-        - contact_id: int
+  - Body:
+    - contact_id: int
 - Response:
-    - Body:
-        - code: int
-        - message: string
+  - Body:
+    - code: int
+    - message: string
 
 ### 前端
 
@@ -234,12 +234,12 @@
 - Method: POST
 - Authorization: Bearer token
 - Request:
-    - Body:
-        - contact_id: int
+  - Body:
+    - contact_id: int
 - Response:
-    - Body:
-        - code: int
-        - message: string
+  - Body:
+    - code: int
+    - message: string
 
 ## 获取好友列表
 
@@ -252,7 +252,7 @@
 - Authorization: Bearer token
 - Request:
 - Response:
-    - Body:
-        - code: int
-        - message: string
-        - contacts: array
+  - Body:
+    - code: int
+    - message: string
+    - contacts: array
