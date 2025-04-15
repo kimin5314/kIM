@@ -32,63 +32,25 @@ CREATE TABLE contacts (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 私聊消息表
+-- 聊天记录表
 CREATE TABLE messages (
     id SERIAL PRIMARY KEY,
-    sender_id INT REFERENCES users(id) ON DELETE CASCADE,
-    receiver_id INT REFERENCES users(id) ON DELETE CASCADE,
+    sender_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    chat_type VARCHAR(10) NOT NULL CHECK (chat_type IN ('private', 'room')),
+    receiver_id INT NOT NULL,  -- 若为私聊则为用户ID，若为聊天室则为room_id
+    message_type VARCHAR(10) NOT NULL CHECK (
+        message_type IN ('text', 'image', 'file', 'audio', 'video', 'system')
+    ),
     content TEXT,
-    message_type VARCHAR(20) CHECK (message_type IN ('text', 'image', 'video', 'file')),
     file_url TEXT,
-    status VARCHAR(20) CHECK (status IN ('sent', 'delivered', 'read')),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 群聊表
-CREATE TABLE groups (
+-- 聊天室表
+CREATE TABLE chat_rooms (
     id SERIAL PRIMARY KEY,
-    group_name VARCHAR(100) NOT NULL,
-    creator_id INT REFERENCES users(id) ON DELETE CASCADE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- 群聊成员表
-CREATE TABLE group_members (
-    id SERIAL PRIMARY KEY,
-    group_id INT REFERENCES groups(id) ON DELETE CASCADE,
-    user_id INT REFERENCES users(id) ON DELETE CASCADE,
-    role VARCHAR(20) CHECK (role IN ('admin', 'member')),
-    joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- 群聊消息表
-CREATE TABLE group_messages (
-    id SERIAL PRIMARY KEY,
-    group_id INT REFERENCES groups(id) ON DELETE CASCADE,
-    sender_id INT REFERENCES users(id) ON DELETE CASCADE,
-    content TEXT,
-    message_type VARCHAR(20) CHECK (message_type IN ('text', 'image', 'video', 'file')),
-    file_url TEXT,
-    status VARCHAR(20) CHECK (status IN ('sent', 'delivered', 'read')),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- 公共聊天室表
-CREATE TABLE chatrooms (
-    id SERIAL PRIMARY KEY,
-    room_name VARCHAR(100) UNIQUE NOT NULL,
+    name VARCHAR(100) NOT NULL,
     description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- 公共聊天室消息表
-CREATE TABLE chatroom_messages (
-    id SERIAL PRIMARY KEY,
-    room_id INT REFERENCES chatrooms(id) ON DELETE CASCADE,
-    sender_id INT REFERENCES users(id) ON DELETE CASCADE,
-    content TEXT,
-    message_type VARCHAR(20) CHECK (message_type IN ('text', 'image', 'video', 'file')),
-    file_url TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
