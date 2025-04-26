@@ -136,7 +136,14 @@
     - code: int
     - message: string
     - status: string
-
+- Request:
+  - Body:
+    - type: string
+    - chat_type: string
+    - reveiver_id: int
+    - message_type: string
+    - content: string
+    - file_url: string
 ### 前端
 
 获取指定消息的状态, 显示在聊天窗口中.
