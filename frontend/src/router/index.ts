@@ -1,18 +1,17 @@
 import {createRouter, createWebHistory} from 'vue-router'
-
-import ChatPage from '../pages/ChatPage.vue'
+import Cube from '../pages/Cube.vue'
 
 const routes = [
     {
-        path:"/chat",
-        name:"chat",
-        component: ChatPage
+        path:"/cube",
+        name:"cube",
+        component: Cube
     }
 ]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes,
+    routes
 })
 
 export default router
